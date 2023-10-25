@@ -1,0 +1,16 @@
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace WebShopApp_MVC.Models
+{
+    public class Termek:Record
+    {
+        public string? Nev {get; set;}
+        public string? Leiras {get; set;}
+        public double Ar {get; set;}
+        public bool Elerheto { get; set;}
+        public string? FenykepUtvonal { get; set;}
+
+        public int KategoriaId { get; set;}
+        
+    }
+}
