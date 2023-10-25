@@ -5,7 +5,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<MyDataBaseContext>(options=>options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddDbContext<MyDataBaseContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+
+builder.Services.AddCors(c =>
+{
+    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,7 +27,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseCors("AllowOrigin");
 app.UseAuthorization();
 
 app.MapControllerRoute(

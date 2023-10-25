@@ -1,0 +1,32 @@
+﻿@model List<WebShopApp_MVC.Models.Termek>
+@{
+    ViewData["Title"] = "Termékek oldal";
+}
+<h1 style="text-align:center;">Termékek</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Név</th>
+            <th>KategóriaId</th>
+            <th>Leírás</th>
+            <th>Ár</th>
+            <th>Elérhető</th>
+            <th>Fénykép útvonal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nev</td>
+                <td>@item.KategoriaId</td>
+                <td>@item.Leiras</td>
+                <td>@item.Ar</td>
+                <td>@item.Elerheto</td>
+                <td>@item.FenykepUtvonal</td>
+            </tr>
+        }
+    </tbody>
+</table>
