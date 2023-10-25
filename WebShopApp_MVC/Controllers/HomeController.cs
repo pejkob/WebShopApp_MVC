@@ -28,8 +28,13 @@ namespace WebShopApp_MVC.Controllers
        public IActionResult Termekek()
         {
             MyDataBaseContext context = new MyDataBaseContext();
-            var termekek = context.Termek.ToList();
-            return View(termekek);
+            var viewModel = new TermekViewModel
+            {
+                TermekList = context.Termek.ToList(),
+                KategoriaList = context.Kategoria.ToList()
+            };
+            
+            return View(viewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

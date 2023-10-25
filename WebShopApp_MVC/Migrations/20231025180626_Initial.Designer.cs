@@ -10,8 +10,8 @@ using WebShopApp_MVC.Models;
 namespace WebShopApp_MVC.Migrations
 {
     [DbContext(typeof(MyDataBaseContext))]
-    [Migration("20231025083938_AddKategoriaTable")]
-    partial class AddKategoriaTable
+    [Migration("20231025180626_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
