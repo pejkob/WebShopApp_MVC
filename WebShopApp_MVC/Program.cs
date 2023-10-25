@@ -1,8 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using WebShopApp_MVC.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<MyDataBaseContext>(options=>options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

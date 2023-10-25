@@ -10,8 +10,8 @@ using WebShopApp_MVC.Models;
 namespace WebShopApp_MVC.Migrations
 {
     [DbContext(typeof(MyDataBaseContext))]
-    [Migration("20231025081656_Initial")]
-    partial class Initial
+    [Migration("20231025083938_AddKategoriaTable")]
+    partial class AddKategoriaTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,23 @@ namespace WebShopApp_MVC.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.24")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("WebShopApp_MVC.Models.Kategoria", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Leiras")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nev")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kategoria");
+                });
 
             modelBuilder.Entity("WebShopApp_MVC.Models.Termek", b =>
                 {
