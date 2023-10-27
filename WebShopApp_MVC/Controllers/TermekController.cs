@@ -71,7 +71,27 @@ namespace WebShopApp_MVC.Controllers
                 }
             }    
         }
-       
-       
+
+        [HttpPut]
+
+        public IActionResult Put(Termek termek)
+        {
+            using (var context = new MyDataBaseContext())
+            {
+                try
+                {
+
+                    context.Update<Termek>(termek);
+                    context.SaveChanges();
+                    return StatusCode(statusCode: 204, "A termék adatai sikeresen módosítva");
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+            }
+        }
+
+
     }
 }
