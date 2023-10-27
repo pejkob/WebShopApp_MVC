@@ -30,7 +30,7 @@ namespace WebShopApp_MVC.Controllers
             MyDataBaseContext context = new MyDataBaseContext();
             var viewModel = new TermekViewModel
             {
-                TermekList = context.Termek.ToList(),
+                TermekList = TermekController.TermekGet(context),
                 KategoriaList = context.Kategoria.ToList()
             };
             
