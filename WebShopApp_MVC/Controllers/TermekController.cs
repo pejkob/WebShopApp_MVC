@@ -92,6 +92,24 @@ namespace WebShopApp_MVC.Controllers
             }
         }
 
+        [HttpDelete("{id}")]
+
+        public IActionResult Delete(int id)
+        {
+            using (var context=new MyDataBaseContext())
+            {
+                try
+                {
+                    context.Remove<Termek>(context.Termek.Where(termek=>termek.Id==id).First());
+                    context.SaveChanges();
+                    return StatusCode(statusCode: 200, "A termék sikeresen törölve!");
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+            }
+        }
 
     }
 }
