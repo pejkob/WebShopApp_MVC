@@ -100,9 +100,12 @@ namespace WebShopApp_MVC.Controllers
             {
                 try
                 {
-                    context.Remove<Termek>(context.Termek.Where(termek=>termek.Id==id).First());
+                    Termek termek = new(id);
+                   
+                    context.Remove<Termek>(termek);
+                    //context.Remove<Termek>(context.Termek.First(termek=>termek.Id==id));
                     context.SaveChanges();
-                    return StatusCode(statusCode: 200, "A termék sikeresen törölve!");
+                    return StatusCode(statusCode: 200, $"A termék sikeresen törölve! (ID:{id})");
                 }
                 catch (Exception ex)
                 {
