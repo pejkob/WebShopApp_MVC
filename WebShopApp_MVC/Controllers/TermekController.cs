@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Diagnostics;
 using WebShopApp_MVC.Models;
+using System.Linq;
 
 namespace WebShopApp_MVC.Controllers
 {
@@ -26,5 +27,7 @@ namespace WebShopApp_MVC.Controllers
                 }
             }
         }
+       
+       
     }
 }

@@ -14,6 +14,8 @@ namespace WebShopApp_MVC.Models
 
         public DbSet<Termek> Termek { get; set; }
         public DbSet<Kategoria> Kategoria { get; set; }
+
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
