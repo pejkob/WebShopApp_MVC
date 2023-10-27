@@ -1,5 +1,4 @@
 ﻿@model List<WebShopApp_MVC.Models.Termek>
-
 @{
     ViewData["Title"] = "Termékek oldal";
 }
@@ -17,12 +16,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        
+        @foreach (var item in Model.TermekList)
         {
             <tr>
                 <td>@item.Id</td>
                 <td>@item.Nev</td>
-                <td>@item.KategoriaId</td>
+                <td>
+                    @{
+                     var kategoriaNev = Model.KategoriaList
+                    .Where(kategoria => kategoria.Id == item.KategoriaId)
+                    .Select(kategoria => kategoria.Nev)
+                    .FirstOrDefault();
+                    }
+                    @kategoriaNev
+                </td>
                 <td>@item.Leiras</td>
                 <td>@item.Ar Ft</td>
                 <td>@item.Elerheto</td>
